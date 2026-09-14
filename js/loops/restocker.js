@@ -50,9 +50,7 @@ function parseShipment(rawData) {
 }
   return arr;
 }
-let ship = parseShipment(rawData);
-const wship = ship[0];
-console.log(ship)
+
 function planRestock(pantry, shipment){
   let arr = [];
   for(let i=0;i<shipment.length;i++){
@@ -83,4 +81,28 @@ function planRestock(pantry, shipment){
 }
   return arr;
 }
-console.log(planRestock(pantry, ship ));
+
+const groupByZone = actions => {
+  let obj = {};
+  for(let i = 0; i < actions.length; i++){
+ let zone = actions[i].item.zone;
+    if(!obj[zone]){
+    obj[zone]= [];
+    }
+    
+      obj[zone].push(actions[i].type);
+    }
+  return obj;
+}
+
+function clonePantry(pantry){
+  const clone = structuredClone(pantry);
+  return clone;
+}
+const ship = parseShipment(rawData);
+const use = planRestock(pantry, ship);
+const zzz = groupByZone(use);
+const cpp = clonePantry(pantry);
+console.log(zzz, cpp);
+
+
