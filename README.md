@@ -12,6 +12,7 @@ Some files are completed solutions, while others may be experiments or work in p
 │   ├── high-order/  # Array methods and higher-order function practice
 │   ├── loops/       # Loop-focused exercises and larger data-processing drills
 │   ├── reviews/     # Review exercises covering mixed JavaScript topics
+│   ├── README.md    # Exercise catalogue, completion notes and commands
 │   └── package.json # CommonJS metadata; there are no runtime dependencies
 └── web/
     └── tribute/     # Static responsive-web-design tribute page
@@ -24,6 +25,10 @@ Some files are completed solutions, while others may be experiments or work in p
 
 No dependency installation or build step is required for the current files.
 
+See [`js/README.md`](js/README.md) for the current exercise catalogue. It
+identifies runnable practice, empty placeholders and informal scratch files so
+their presence is not mistaken for completed curriculum work.
+
 ## Running JavaScript exercises
 
 Run a file directly from the repository root:
@@ -35,7 +40,7 @@ node js/reviews/story.js
 
 Several exercises print example output with `console.log()`. Others only define a function and will exit without output when run directly; those files are intended to be evaluated in freeCodeCamp or called with a temporary local example.
 
-The `js/package.json` file currently contains only project metadata. Its placeholder `npm test` command is not a test suite.
+The `js/package.json` file currently contains only project metadata. Its placeholder `npm test` command is not a test suite. The JavaScript index includes a syntax-check command that deliberately excludes the documented text-only `js/saveme.js` scratch file.
 
 ## Viewing the tribute page
 
