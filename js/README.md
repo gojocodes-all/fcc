@@ -13,7 +13,8 @@ incomplete or fail the original freeCodeCamp assertions.
 - `saveme.js` contains informal text notes despite its `.js` extension and is
   not executable JavaScript.
 - `hi` is also an informal text note and has no JavaScript extension.
-- There is no automated correctness test suite.
+- `high-order/book-organizer.js` has focused regression coverage. The remaining
+  exercises do not yet have automated correctness tests.
 
 ## Exercise catalogue
 
@@ -74,6 +75,17 @@ node js/reviews/password.js
 Some files print a built-in example. Others only define a function and exit
 without output; use the freeCodeCamp test runner or add a temporary local call
 when reviewing those exercises.
+
+## Run focused tests
+
+From the `js/` directory:
+
+```bash
+npm test
+```
+
+The current suite covers the corrected book-organizer exercise only. Continue
+to use the original freeCodeCamp assertions for exercises without local tests.
 
 ## Validate syntax
 

@@ -15,15 +15,14 @@ const books = [
     releaseYear: 1925,
   },
 ];
-const sortByYear = (book1,book2) => {
-  if(book1.releaseYear < book2.releaseYear){
-    return -1;
-  }
-  else if(book1.releaseYear > book2.releaseYear){
-    return 1;
-  }
-  return 0;
-};
 
-const filteredBooks = books.filter(book => book.releaseYear > 1960);
-filteredBooks.sort(a - b);
+const sortByYear = (book1, book2) => book1.releaseYear - book2.releaseYear;
+
+const organizeBooks = (items, minimumYear = 1960) =>
+  items
+    .filter((book) => book.releaseYear > minimumYear)
+    .sort(sortByYear);
+
+const filteredBooks = organizeBooks(books);
+
+module.exports = { books, filteredBooks, organizeBooks, sortByYear };

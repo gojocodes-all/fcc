@@ -2,7 +2,7 @@
 
 This repository is a personal learning workspace for exercises and small projects completed while following the [freeCodeCamp](https://www.freecodecamp.org/) curriculum. It records practice code rather than providing a finished application or reusable package.
 
-Some files are completed solutions, while others may be experiments or work in progress. The repository does not currently have an automated test suite, so a file's presence should not be treated as proof that it passes the corresponding freeCodeCamp tests.
+Some files are completed solutions, while others may be experiments or work in progress. Focused regression coverage exists for corrected exercises, but most files still rely on the corresponding freeCodeCamp assertions; a file's presence should not be treated as proof that it passes them.
 
 ## Repository structure
 
@@ -13,7 +13,8 @@ Some files are completed solutions, while others may be experiments or work in p
 │   ├── loops/       # Loop-focused exercises and larger data-processing drills
 │   ├── reviews/     # Review exercises covering mixed JavaScript topics
 │   ├── README.md    # Exercise catalogue, completion notes and commands
-│   └── package.json # CommonJS metadata; there are no runtime dependencies
+│   ├── test/        # Focused Node.js regression tests
+│   └── package.json # CommonJS metadata and test command
 └── web/
     └── tribute/     # Static responsive-web-design tribute page
 ```
@@ -40,7 +41,7 @@ node js/reviews/story.js
 
 Several exercises print example output with `console.log()`. Others only define a function and will exit without output when run directly; those files are intended to be evaluated in freeCodeCamp or called with a temporary local example.
 
-The `js/package.json` file currently contains only project metadata. Its placeholder `npm test` command is not a test suite. The JavaScript index includes a syntax-check command that deliberately excludes the documented text-only `js/saveme.js` scratch file.
+The `js/package.json` file exposes the focused regression suite through `npm test` from the `js/` directory. The suite does not claim coverage for every exercise. The JavaScript index also includes a syntax-check command that deliberately excludes the documented text-only `js/saveme.js` scratch file.
 
 ## Viewing the tribute page
 
