@@ -1,9 +1,12 @@
 {
-  "name": "js",
+  "name": "freecodecamp-practice-js",
   "version": "1.0.0",
-  "description": "",
+  "description": "Local JavaScript exercises and focused regression tests for freeCodeCamp practice.",
+  "private": true,
   "type": "commonjs",
-  "main": "index.js",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "test": "node --test test/*.test.js"
   }

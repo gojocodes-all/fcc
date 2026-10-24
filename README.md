@@ -25,6 +25,8 @@ Some files are completed solutions, while others may be experiments or work in p
 - A modern browser for the web project.
 
 No dependency installation or build step is required for the current files.
+The manifest in `js/package.json` is a private test harness for this learning
+workspace, not a package intended for publication.
 
 See [`js/README.md`](js/README.md) for the current exercise catalogue. It
 identifies runnable practice, empty placeholders and informal scratch files so
