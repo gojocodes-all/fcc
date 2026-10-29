@@ -43,11 +43,11 @@ node js/reviews/story.js
 
 Several exercises print example output with `console.log()`. Others only define a function and will exit without output when run directly; those files are intended to be evaluated in freeCodeCamp or called with a temporary local example.
 
-The `js/package.json` file exposes the focused regression suite through `npm test` from the `js/` directory. The suite does not claim coverage for every exercise. The JavaScript index also includes a syntax-check command that deliberately excludes the documented text-only `js/saveme.js` scratch file.
+The `js/package.json` file exposes the focused regression suite through `npm test` from the `js/` directory. The suite covers corrected exercises and critical static-page markup; it does not claim coverage for every exercise or browser behavior. The JavaScript index also includes a syntax-check command that deliberately excludes the documented text-only `js/saveme.js` scratch file.
 
 ## Viewing the tribute page
 
-Open `web/tribute/index.html` in a browser. The page has no build step, but its image is loaded from freeCodeCamp's CDN and therefore requires an internet connection.
+Open `web/tribute/index.html` in a browser. The page has no build step, but its image is loaded from freeCodeCamp's CDN and therefore requires an internet connection. Its external biography link opens in a new tab and says so before activation.
 
 ## Adding practice work
 
