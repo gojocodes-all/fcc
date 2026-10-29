@@ -1,5 +1,13 @@
 # Maintenance log
 
+## 2026-10-29 — Warn before opening the tribute biography in a new tab
+
+- **Rationale:** The tribute page forced its external biography link into a new tab without warning users, which can be disorienting and makes the browser Back button unavailable for returning to the page. The link now gives a visible and assistive-text warning before activation and explicitly isolates the opened page from its opener.
+- **Files changed:** `web/tribute/index.html`, `js/test/tribute-page.test.js`, `README.md`, `js/README.md`, and `.github/maintenance-log.md`.
+- **Validation performed:** Ran `npm test`; syntax-checked every executable JavaScript file; asserted that the tribute link retains its destination, new-tab target, visible warning, and `noopener` relationship; ran `git diff --check`; and reviewed the complete diff for accessibility, security, responsive layout, backward compatibility, and repository scope.
+- **Risk level:** Low. The destination and new-tab behavior are unchanged. The link gains explanatory text and explicit isolation attributes; no dependencies, exercise behavior, page structure, or deployment configuration changes.
+- **Rollback:** Revert this pull request's squash commit to restore the previous link text and attributes and remove the focused regression test and documentation updates.
+
 ## 2026-10-24 — Align JavaScript package metadata with repository purpose
 
 - **Rationale:** The JavaScript manifest described the folder with the generic name `js`, left its description blank, and declared a nonexistent `index.js` entry point. That metadata made a private learning workspace look like an incomplete publishable package. The manifest now identifies its actual purpose, prevents accidental publication, records the documented Node.js baseline, and retains only the test command it supports.
