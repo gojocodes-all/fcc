@@ -45,6 +45,11 @@ Several exercises print example output with `console.log()`. Others only define 
 
 The `js/package.json` file exposes the focused regression suite through `npm test` from the `js/` directory. The suite covers corrected exercises and critical static-page markup; it does not claim coverage for every exercise or browser behavior. The JavaScript index also includes a syntax-check command that deliberately excludes the documented text-only `js/saveme.js` scratch file.
 
+GitHub Actions runs both the focused tests and that repository-wide syntax
+check for pull requests and changes to `main`. The workflow uses read-only
+repository permissions and does not publish packages or deploy the practice
+files.
+
 ## Viewing the tribute page
 
 Open `web/tribute/index.html` in a browser. The page has no build step, but its image is loaded from freeCodeCamp's CDN and therefore requires an internet connection. Its external biography link opens in a new tab and says so before activation.
