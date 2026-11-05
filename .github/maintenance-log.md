@@ -1,5 +1,13 @@
 # Maintenance log
 
+## 2026-11-05 — Validate practice changes before merge
+
+- **Rationale:** The repository had focused regression tests and a documented syntax-check command, but neither ran automatically for pull requests. Contributors could therefore merge a broken corrected exercise or invalid JavaScript without the existing checks reporting it.
+- **Files changed:** `.github/workflows/validate.yml`, `README.md`, and `.github/maintenance-log.md`.
+- **Validation performed:** Ran all four focused tests; syntax-checked every executable JavaScript file while preserving the documented `js/saveme.js` text-note exception; parsed the workflow as YAML; ran `git diff --check`; and reviewed the complete diff for least-privilege permissions, pinned actions, security, compatibility, and repository scope.
+- **Risk level:** Low. The workflow is read-only, has a five-minute timeout, and runs only existing validation commands. Exercise code, browser content, dependencies, package metadata, and deployment behavior are unchanged.
+- **Rollback:** Revert this pull request to remove hosted validation and its README and maintenance-log documentation.
+
 ## 2026-10-29 — Warn before opening the tribute biography in a new tab
 
 - **Rationale:** The tribute page forced its external biography link into a new tab without warning users, which can be disorienting and makes the browser Back button unavailable for returning to the page. The link now gives a visible and assistive-text warning before activation and explicitly isolates the opened page from its opener.
