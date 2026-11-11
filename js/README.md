@@ -14,8 +14,8 @@ incomplete or fail the original freeCodeCamp assertions.
   not executable JavaScript.
 - `hi` is also an informal text note and has no JavaScript extension.
 - `high-order/book-organizer.js`, `loops/missingletter.js`, and the tribute
-  page's external-link behavior have focused regression coverage. The remaining exercises do not yet have
-  automated correctness tests.
+  page's external-link behavior have focused regression coverage. The remaining
+  exercises do not yet have automated correctness tests.
 
 ## Exercise catalogue
 
@@ -86,8 +86,9 @@ npm test
 ```
 
 The current suite covers the corrected book-organizer and missing-letter
-exercises plus the tribute page's new-tab warning and isolation attributes. Continue to use the original
-freeCodeCamp assertions for exercises without local tests.
+exercises plus the tribute page's new-tab warning and isolation attributes.
+Continue to use the original freeCodeCamp assertions for exercises without
+local tests.
 The directory's package manifest is intentionally private: it records the
 supported Node.js version and test command, but does not expose a library entry
 point or describe a publishable package.
