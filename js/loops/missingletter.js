@@ -1,23 +1,13 @@
 function fearNotLetter(str) {
-  const alphabet = "abcdefghijklmnopqrstuvwxyz";
-  const missingLetters = [];
+  for (let index = 1; index < str.length; index++) {
+    const expectedCode = str.charCodeAt(index - 1) + 1;
 
-  for (let i = 0; i < str.length - 1; i++) {
-    const current = alphabet.indexOf(str[i]);
-    const next = alphabet.indexOf(str[i + 1]);
-
-    if (next !== current + 1) {
-      for (let j = current + 1; j < next; j++) {
-        missingLetters.push(alphabet[j]);
-      }
+    if (str.charCodeAt(index) !== expectedCode) {
+      return String.fromCharCode(expectedCode);
     }
   }
 
-  if (missingLetters.length === 0) {
-    return undefined;
-  }
-
-  return missingLetters;
+  return undefined;
 }
 
-console.log(fearNotLetter("abfg"))
+module.exports = { fearNotLetter };

@@ -1,5 +1,13 @@
 # Maintenance log
 
+## 2026-11-11 — Return the missing letter value
+
+- **Rationale:** The completed missing-letter exercise collected every skipped character and returned an array. The freeCodeCamp exercise contract expects the first missing letter as a string, or `undefined` when the sequence is complete, so valid examples failed despite the file passing syntax checks.
+- **Files changed:** `js/loops/missingletter.js` now returns the first missing character without building an intermediate alphabet array; `js/test/missingletter.test.js` adds focused regression cases; `js/README.md` records the added coverage; this maintenance log records the decision.
+- **Validation performed:** Ran the three focused missing-letter tests and syntax-checked both changed JavaScript files locally. The repository's pull-request workflow runs the complete focused test suite and repository-wide JavaScript syntax check.
+- **Risk level:** Low. The change is isolated to one completed practice exercise, adds no dependencies, preserves the expected `undefined` result for complete sequences, and does not affect the tribute page or other exercises.
+- **Rollback:** Revert this pull request's squash commit to restore the previous array-returning implementation and remove its focused tests and documentation.
+
 ## 2026-11-05 — Validate practice changes before merge
 
 - **Rationale:** The repository had focused regression tests and a documented syntax-check command, but neither ran automatically for pull requests. Contributors could therefore merge a broken corrected exercise or invalid JavaScript without the existing checks reporting it.
