@@ -1,5 +1,27 @@
 # Maintenance log
 
+## 2026-11-16 — Repair inventory lookup and stock updates
+
+- **Rationale:** The inventory exercise returned `-1` after checking only its
+  first item, never added a product to an empty inventory, appended duplicates
+  while searching for a match, and subtracted unavailable stock into negative
+  quantities. The operations now normalize product names, resolve one product
+  index, and apply a single add, update, or removal.
+- **Files changed:** `js/reviews/inventory.js` fixes lookup and stock mutations
+  and exports the exercise boundary; `js/test/inventory.test.js` covers initial
+  adds, updates, later-entry lookup, normal removal, depletion, and insufficient
+  stock; `js/README.md` records the focused coverage; this log records the work.
+- **Validation performed:** `npm test --prefix js`; syntax checks for every
+  executable JavaScript file; `git diff --check`; and complete diff review for
+  behavior, mutation scope, case-insensitive matching, global-variable leakage,
+  backward compatibility, and repository conventions.
+- **Risk level:** Low. The change is isolated to a previously broken practice
+  exercise, adds no dependency, and preserves its public operation names and
+  documented lowercase console-message contract. Other exercises and the
+  tribute page are unchanged.
+- **Rollback:** Revert this pull request's squash commit to restore the previous
+  inventory exercise and remove its focused tests and documentation.
+
 ## 2026-11-11 — Return the missing letter value
 
 - **Rationale:** The completed missing-letter exercise collected every skipped character and returned an array. The freeCodeCamp exercise contract expects the first missing letter as a string, or `undefined` when the sequence is complete, so valid examples failed despite the file passing syntax checks.
