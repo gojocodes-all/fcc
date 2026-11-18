@@ -1,60 +1,42 @@
 const inventory = [];
-
 const findProductIndex = (name) => {
-  const normalizedName = name.toLowerCase();
-
-  for (let i = 0; i < inventory.length; i++) {
-    if (inventory[i].name === normalizedName) {
+  for (i = 0; i < inventory.length; i++) {
+    if (inventory[i].name.toLowerCase() === name.toLowerCase()) {
       return i;
     }
+    return -1;
   }
-
-  return -1;
 };
-
 const addProduct = (obj) => {
-  const normalizedName = obj.name.toLowerCase();
-  const productIndex = findProductIndex(normalizedName);
-
-  if (productIndex === -1) {
-    inventory.push({ ...obj, name: normalizedName });
-    console.log(`${normalizedName} added to inventory`);
-    return;
+  for (let i = 0; i < inventory.length; i++) {
+    if (inventory[i].name.toLowerCase() === obj.name.toLowerCase()) {
+      inventory[i].quantity += obj.quantity;
+      console.log(`${inventory[i].name} quantity updated`);
+    } else {
+      inventory.push(obj);
+      console.log(`${obj.name} added to inventory`);
+    }
   }
-
-  inventory[productIndex].quantity += obj.quantity;
-  console.log(`${inventory[productIndex].name} quantity updated`);
 };
-
 const removeProduct = (name, quantity) => {
-  const normalizedName = name.toLowerCase();
-  const productIndex = findProductIndex(normalizedName);
-
-  if (productIndex === -1) {
-    console.log(`${normalizedName} not found`);
-    return;
+  for (let i = 0; i < inventory.length; i++) {
+    let orig = inventory[i].quantity;
+    let idk = inventory[i].quantity - quantity;
+    if (name.toLowerCase() === inventory[i].name.toLowerCase() && idk !== 0) {
+      inventory[i].quantity = idk;
+      console.log(`Remaining ${name} pieces: ${inventory[i].quantity}`);
+    } else if (
+      name.toLowerCase() === inventory[i].name.toLowerCase() &&
+      idk === 0
+    ) {
+      inventory.splice(i, 1);
+    } else if (
+      name.toLowerCase() === inventory[i].name.toLowerCase() &&
+      idk < 0
+    ) {
+      console.log(`Not enough ${name} available, remaining pieces: ${orig}`);
+    } else {
+      console.log(`${name} not found`);
+    }
   }
-
-  const product = inventory[productIndex];
-
-  if (quantity > product.quantity) {
-    console.log(`Not enough ${normalizedName} available, remaining pieces: ${product.quantity}`);
-    return;
-  }
-
-  product.quantity -= quantity;
-
-  if (product.quantity === 0) {
-    inventory.splice(productIndex, 1);
-    return;
-  }
-
-  console.log(`Remaining ${normalizedName} pieces: ${product.quantity}`);
-};
-
-module.exports = {
-  addProduct,
-  findProductIndex,
-  inventory,
-  removeProduct,
 };
